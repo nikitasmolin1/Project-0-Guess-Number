@@ -7,7 +7,7 @@ import numpy as np
 number = np.random.randint(1, 101) # загадываем число
 
 
-def guess_number(number:int=1) -> int:
+def predicted_number(number:int=1):
     """Рандомно угадываем число
 
     Args:
@@ -33,7 +33,7 @@ def guess_number(number:int=1) -> int:
     return count
 
 
-def score_game(guess_number) -> int:
+def score_game(predicted_number):
     """За какое количество попыток в среднем за 1000 подходов угадывает наш алгоритм
 
     Args:
@@ -47,7 +47,7 @@ def score_game(guess_number) -> int:
     random_array = np.random.randint(1, 101, size=(1000)) # загадали список чисел
 
     for number in random_array:
-        count_lst.append(guess_number(number))
+        count_lst.append(predicted_number(number))
 
     score = int(np.mean(count_lst)) # находим среднее количество попыток
     print(f'Your algorithm guesses the number in an average of {score} attempts!')
@@ -56,4 +56,4 @@ def score_game(guess_number) -> int:
 
 
 if __name__ == '__main__':
-    score_game(guess_number)
+    score_game(predicted_number)
